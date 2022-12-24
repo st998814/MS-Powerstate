@@ -1,4 +1,4 @@
-# MS-Powerstate
+# MS-Powerstate data analytics
 
 This open source side project is for checking Windows OS system automatically.
 
