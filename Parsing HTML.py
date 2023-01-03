@@ -28,7 +28,7 @@ os.system('powercfg /sleepstudy')
 
 #Getting raw data
 
-HTMLFile = open(r"C:\Users\st998\Desktop\To Steven\531.html","r")
+HTMLFile = open(r"C:\Users\xxx\xxx.html","r")
 index = HTMLFile.read()
 S = BeautifulSoup(index, 'lxml')
 patten = re.compile(r"var LocalSprData = (.*?);$",re.MULTILINE | re.DOTALL)
@@ -65,13 +65,9 @@ for instance in ScenarioInstances:
     entrytimestamplocal= instance["EntryTimestampLocal"]
     duration= instance["Duration"]
     onac = instance["OnAc"]
-    #topblockers = instance["TopBlockers"]
     metadata = instance["Metadata"]["Values"]
-    
     applist=[]
-    
-    #get topblocker app name
-   
+  
     if instance.get("TopBlockers")!= None: # 
       
         contains_topblocker= instance["TopBlockers"]
@@ -101,13 +97,6 @@ for instance in ScenarioInstances:
     Store_to_list= Powerstate(tYpe,sessionid,entrytimestamplocal,duration,onac,applist,swdrip_value,hwdrip_value)
     
     PS.append(Store_to_list)
-
-   
-
-
-
-
-
 
 
 # Find issue
