@@ -65,12 +65,10 @@ for instance in ScenarioInstances:
     entrytimestamplocal= instance["EntryTimestampLocal"]
     duration= instance["Duration"]
     onac = instance["OnAc"]
-    #topblockers = instance["TopBlockers"]
     metadata = instance["Metadata"]["Values"]
-    
     applist=[]
     
-    #get topblocker app name
+
    
     if instance.get("TopBlockers")!= None: # 
       
@@ -85,7 +83,6 @@ for instance in ScenarioInstances:
     hwdrip_value=0
     for k in metadata: #in "metadata"
         key = k["Key"]
-        #print("Key=", k["Key"], "  ", "Value=", k["Value"])
         if key== "Info.SwLowPowerStateTime":
             swdrip_value = k["Value"]  # +
             swFlag = True
@@ -103,10 +100,6 @@ for instance in ScenarioInstances:
     PS.append(Store_to_list)
 
    
-
-
-
-
 
 
 
@@ -240,7 +233,6 @@ wavied_app = ["Cortana Voice Activation","Audio Service","PLM Phase Offenders","
 for i in range(0,len(PS)): 
     if PS[i].TopBlockers == wavied_app:
         out_of_wavied_app.append(i) 
-print(out_of_wavied_app)
 
 
 
