@@ -12,7 +12,7 @@ Although we can investigate issues from MS sleep-study reports, this task can au
 Failing criteria depend on different inspection standards, or you can refer to failing creteria.xls.
 
 
-## Method&Tools
+## Method&Modules
 
 ### Getting raw data 
 
