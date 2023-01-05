@@ -28,7 +28,7 @@ os.system('powercfg /sleepstudy')
 
 #Getting raw data
 
-HTMLFile = open(r"C:\Users\st998\Desktop\To Steven\531.html","r")
+HTMLFile = open(r"C:\Users\xxx\xxx\xxx\example.html","r")
 index = HTMLFile.read()
 S = BeautifulSoup(index, 'lxml')
 patten = re.compile(r"var LocalSprData = (.*?);$",re.MULTILINE | re.DOTALL)
@@ -40,10 +40,11 @@ ScenarioInstances = JsonObject["ScenarioInstances"] #List
 sessioncount = ScenarioInstances.count
 
 
+
+
+#Buliding Structure using class
+
 PS = []
-
-#Structure
-
 class Powerstate():
     def __init__(self,Type,SessionId,EntryTimestampLocal,Duration,OnAc,TopBlockers,swdrip_value,hwdrip_value):
         self.Type = Type
@@ -159,7 +160,11 @@ for i in range(0,len(PS)):
     if PS[i].TopBlockers == wavied_app:
         out_of_wavied_app.append(i) 
 
-
+out_of_wavied_app = []
+wavied_app = ["Cortana Voice Activation","Audio Service","PLM Phase Offenders","Maintenance Phase","Host Activity Manager","Windows Error Reporting","DAM Phase Offenders","BI","WNS","NCSI","No CS Phase Offenders","Universal Telemetry Client","DHCP","WP Location Client","BITS Service","WU"]
+for i in range(0,len(PS)): 
+    if PS[i].TopBlockers == wavied_app:
+        out_of_wavied_app.append(i) 
 
    
 
@@ -167,7 +172,7 @@ for i in range(0,len(PS)):
 
 # Create excel
 
-df = pd.DataFrame(index=["531"],columns=["Result","Non-Sleep duration over 10 min","No HW Value",'No SW Value',"SW/HW Gap over 0.1"])
+df = pd.DataFrame(index=["example"],columns=["Result","Non-Sleep duration over 10 min","No HW Value",'No SW Value',"SW/HW Gap over 0.1"])
 
 if len(Issue_A_swdrip_90) + len(Issue_A_hwdrip_90)+len(Issue_B)+len(Issue_C)+len(Issue_E)+len(Issue_F) == 0:
 
@@ -175,10 +180,10 @@ if len(Issue_A_swdrip_90) + len(Issue_A_hwdrip_90)+len(Issue_B)+len(Issue_C)+len
 else:
  df.loc[["531"],['Result']]= "Fail"
 
-df.loc[["531"],['Non-Sleep duration over 10 min']]= len(Issue_E)
-df.loc[["531"],["No SW Value"]] = len(Issue_B)
-df.loc[["531"],["No HW Value"]] = len(Issue_C)
-df.loc[["531"],["SW/HW Gap over 0.1"]] = len(Issue_F)
+df.loc[["example"],['Non-Sleep duration over 10 min']]= len(Issue_E)
+df.loc[["example"],["No SW Value"]] = len(Issue_B)
+df.loc[["example"],["No HW Value"]] = len(Issue_C)
+df.loc[["example"],["SW/HW Gap over 0.1"]] = len(Issue_F)
 
 
 
@@ -228,11 +233,7 @@ wb.save('Result_beta.xlsx')
 
 
 
-out_of_wavied_app = []
-wavied_app = ["Cortana Voice Activation","Audio Service","PLM Phase Offenders","Maintenance Phase","Host Activity Manager","Windows Error Reporting","DAM Phase Offenders","BI","WNS","NCSI","No CS Phase Offenders","Universal Telemetry Client","DHCP","WP Location Client","BITS Service","WU"]
-for i in range(0,len(PS)): 
-    if PS[i].TopBlockers == wavied_app:
-        out_of_wavied_app.append(i) 
+
 
 
 
