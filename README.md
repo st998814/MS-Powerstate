@@ -1,12 +1,14 @@
 # MS-Powerstate data analytics
 
-This open source side project is for checking Windows OS system automatically.
-
-Microsoft Windows platform can check power state details such as status(sleep,power-off,hibernation) , duration time and SW/HW drip...etc.
-
-Although  we can invetsigate issue from MS sleep-study report , making this task automatically can deal with multiple device simultaneously aand effortlessly.
+### The open source project for checking Windows OS system automatically.
 
 
+Microsoft Windows platform can check power state details such as status (sleep, power-off, hibernation), duration time, SW/HW drip...etc.
+
+Although we can investigate issues from MS sleep-study reports, this task can automatically deal with multiple devices simultaneously and effortlessly.
 
 
-Failing criteria depand on different inspection standards,or you can refer failing creteria.xls.
+
+
+Failing criteria depend on different inspection standards, or you can refer to failing creteria.xls.
+
